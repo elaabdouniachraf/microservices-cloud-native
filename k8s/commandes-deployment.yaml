@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: commandes
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: commandes
+
+  template:
+    metadata:
+      labels:
+        app: commandes
+
+    spec:
+      containers:
+      - name: commandes
+        image: commandes:v1
+        imagePullPolicy: Never
+
+        ports:
+        - containerPort: 4000
